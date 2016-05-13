@@ -19,7 +19,12 @@ branches:
 
 #services:
 #  - docker
-script: go test ./...
+#script: go test ./...
+script:
+  - ls
+  - pwd
+  - go build  deployer/deployer.go
+
 
 notifications:
   email: false
