@@ -23,7 +23,7 @@ branches:
 script:
   - ls
   - pwd
-  - go build  deployer/deployer.go
+  - go build  deployer/example/myproduct/deployer/deployer.go
 
 
 notifications:
