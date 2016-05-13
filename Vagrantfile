@@ -14,7 +14,7 @@ ARCH=`uname -m | sed 's|i686|386|' | sed 's|x86_64|amd64|'`
 
 # Install Go
 sudo apt-get update
-sudo apt-get install -y build-essential git-core zip curl
+sudo apt-get install -y build-essential git-core zip curl dialog
 
 # Install Go
 cd /tmp
@@ -50,7 +50,16 @@ ln -s  /opt/gopath/src/github.com/dorzheh/deployer/example/myproduct/ /home/vagr
 cd /home/vagrant/
 [ -f  /home/vagrant/deployer ] && rm -f /home/vagrant/deployer
 go build  /home/vagrant/example/deployer/deployer.go
-echo "example" > .product
+echo "product=example" > /home/vagrant/.product
+cat <<EOF  > /home/vagrant/.EULA
+An End-User License Agreement, or EULA, is the agreement put in place
+between someone who purchases, installs, or downloads software, and the licensor
+or provider of the software.
+EOF
+
+# Creating comp/env.tgz
+
+
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|

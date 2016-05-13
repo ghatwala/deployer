@@ -12,6 +12,7 @@ import (
 	gui "github.com/dorzheh/deployer/ui"
 	"github.com/dorzheh/deployer/ui/dialog_ui"
 	"github.com/dorzheh/infra/utils/archutils"
+	//"fmt"
 )
 
 const arch = "x86_64"
@@ -31,12 +32,15 @@ func init() {
 	rootDir = strings.Join(pathArr[0:len(pathArr)-4], "/")
 	newPath := "$PATH:" + rootDir + "/install/" + arch + "/bin"
 	os.Setenv("PATH", (os.ExpandEnv(newPath)))
+	//fmt.Printf("pathArr %v\n", pathArr)
+	//fmt.Printf("rootDir %v\n", rootDir)
 	buf, err := ioutil.ReadFile(filepath.Join(rootDir, ".product"))
 	if err != nil {
 		panic(err)
 	}
 
 	defaultProductName = strings.TrimSpace(strings.Split(string(buf), "=")[1])
+	//fmt.Printf("defaultProductName  %v\n", defaultProductName)
 }
 
 func main() {
