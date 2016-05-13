@@ -21,9 +21,7 @@ branches:
 #  - docker
 #script: go test ./...
 script:
-  - ls
-  - pwd
-  - go build  deployer/example/myproduct/deployer/deployer.go
+  - go build  example/myproduct/deployer/deployer.go
 
 
 notifications:
