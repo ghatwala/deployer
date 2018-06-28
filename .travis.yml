@@ -11,6 +11,7 @@ install:
 # Add Godeps dependencies to GOPATH and PATH
 #  - export GOPATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace:$GOPATH"
 #  - export PATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace/bin:$PATH"
+  - env | grep -i TRAVIS
   - go get github.com/tools/godep
   - godep restore
   - go get -t -v ./...
